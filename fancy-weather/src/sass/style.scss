@@ -1,24 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-@import "../components/backgroundSwitcher/bgLoader";
-@import "../components/backgroundSwitcher/bgButton";
-@import "../components/langSelect/langSelect";
-@import "../components/temperatureSwitcher/temperatureSwitcher";
-@import "../components/search/search";
+@import "variables";
+@import "../components/pageComponents/backgroundSwitcher/bgLoader";
+@import "../components/pageComponents/backgroundSwitcher/bgButton";
+@import "../components/pageComponents/langSelect/langSelect";
+@import "../components/pageComponents/temperatureSwitcher/temperatureSwitcher";
+@import "../components/pageComponents/search/search";
+@import "../components/pageComponents/map/map";
+
+$wrapper-margin: 90px;
+
+:root {
+  font-size: 10px;
+  @media (max-width: $tablet) {
+    font-size: 7px;
+  }
+}
 
 body {
+  margin: 0;
   background: linear-gradient(rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%) center / cover fixed,
   url("../../src/assets/img/bg 3.png") center / cover fixed,
   black;
   color: white;
-  padding: 40px 90px;
-  font-family:  'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+}
+
+.body-wrapper {
+  margin: 40px $wrapper-margin;
+  overflow: hidden;
+
+  @media (min-width: $wide-screen + 2 * $wrapper-margin) {
+    width: $wide-screen;
+    margin: 40px auto;
+  }
+
+  @media (max-width: $wide-screen) {
+    margin: 3.3vw 7.5vw;
+  }
+
+  @media (max-width: $tablet) {
+    margin: 3.3vw 3.5vw;
+  }
 }
 
 
 header {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: $tablet) {
+    flex-direction: column;
+    //justify-content: center;
+    align-items: center;
+  }
 }
 
 .switchers {
@@ -26,44 +61,64 @@ header {
   position: relative;
   font-size: 14px;
   text-transform: uppercase;
+
+  z-index: 100;
 }
 
 .main-wrapper {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: $wide-screen) {
+    flex-direction: column;
+    align-items: center;
+
+    .map {
+      align-self: center;
+      margin-top: 9rem;
+    }
+  }
 }
 
 main {
   margin-top: 57px;
 }
 
-.city {
+.location h1 {
   margin: 5px 0;
-  font-size: 44px;
+  font-size: 4.4rem;
   text-transform: uppercase;
 }
 
 .date-time {
   margin: 0;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .current-weather {
-  //width: 597px;
   display: flex;
+
+  @media (max-width: 2 / 3 * $tablet) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .current-temperature {
-  font-size: 306px;
+  font-size: 30.6rem;
   position: relative;
+
+  //@media (max-width: 2 / 3 * $tablet) {
+  //  font-size: 20rem;
+  //}
 }
 
 .o-sign {
   position: absolute;
-  top:50px;
-  right: -30px;
-  font-size: 100px;
+  top: 5rem;
+  right: -40px;
+  font-size: 10rem;
 }
 
 .overview {
@@ -71,11 +126,29 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @media (max-width: $tablet) {
+    width: auto;
+  }
+  @media (max-width: 2 / 3 * $tablet) {
+    align-items: center;
+    .weather-info {
+      text-align: center;
+    }
+  }
 }
 
 .weather-info {
+  margin-top: 2rem;
+  align-self: flex-end;
+}
+
+.weather-info h3 {
   width: 175px;
   align-self: flex-end;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  margin: 1rem;
 }
 
 .weather-pic {
@@ -84,11 +157,16 @@ main {
 
 .forecast {
   display: flex;
+
+  @media (max-width: $tablet) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .forecast-days {
   h3 {
-    font-size: 22px;
+    font-size: 2.2rem;
     text-transform: uppercase;
   }
 
@@ -103,7 +181,7 @@ main {
 }
 
 .forecast-temperature {
-  font-size: 80px;
+  font-size: 8rem;
   font-weight: 600;
 }
 
@@ -113,4 +191,16 @@ main {
 
 .map {
   align-self: flex-end;
+}
+
+.map-pic {
+  @media (max-width: 2 / 3 * $tablet) {
+    width: 85vw;
+    justify-self: center;
+  }
+}
+
+.map__point {
+  font-weight: 600;
+  font-size: 2rem;
 }

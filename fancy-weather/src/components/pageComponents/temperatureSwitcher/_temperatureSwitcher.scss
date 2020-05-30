@@ -1,0 +1,82 @@
+:root {
+  --accent: rgba(174, 181, 185, 0.5);
+  --border-width: 3px;
+  --border-radius: 9px;
+}
+
+.temperature-switcher {
+  perspective: 800px;
+  margin-left: 75px;
+}
+
+.toggle {
+  position: relative;
+  border: solid var(--border-width) var(--accent);
+  border-radius: var(--border-radius);
+  transition: transform cubic-bezier(0, 0, 0.30, 2) .4s, box-shadow .4s;
+
+  transform-style: preserve-3d;
+  perspective: 800px;
+  box-sizing: border-box;
+  height: 44px;
+  display: flex;
+}
+
+.toggle:hover {
+  box-shadow: 0 2px 10px 5px rgba(26, 188, 156, 0.51);
+}
+
+.toggle > input[type="radio"] {
+  display: none;
+}
+
+.toggle > #tempF:checked ~ #flap {
+  transform: rotateY(-180deg);
+}
+
+.toggle > #tempF:checked ~ #flap > .content {
+  transform: rotateY(-180deg);
+}
+
+.toggle > #tempC:checked ~ #flap {
+  transform: rotateY(0deg);
+}
+
+.toggle > label {
+  display: inline-block;
+  //min-width: 170px;
+  padding: 9px 9px 9px 10px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.toggle > label,
+.toggle > #flap {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.toggle > #flap {
+  position: absolute;
+  top: calc(0px - var(--border-width));
+  left: 50%;
+  height: calc(100% + var(--border-width) * 2);
+  width: calc(50% + 1px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) .5s;
+}
+
+.toggle > #flap > .content {
+  //color: #333;
+  transition: transform 0s linear .25s;
+  transform-style: preserve-3d;
+}
