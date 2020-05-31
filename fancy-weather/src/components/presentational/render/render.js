@@ -4,10 +4,11 @@ import getData from '../../../containers/data';
 import loadImageExternal from '../../../helpers/image/loadImageExternal';
 import TimeHandler from '../../../helpers/TimeHandler';
 import map from '../../pageComponents/map/map';
-import BackgroundSwitcher from '../../pageComponents/backgroundSwitcher/backgroundSwitcher';
+import BackgroundSwitcher from '../../pageComponents/backgroundSwitcher/BackgroundSwitcher';
 
 
 const mainPic = document.querySelector('.weather-pic');
+const wrapper = document.querySelector('.main-wrapper');
 
 const getMainPic = (weatherObj) => {
   const iconPath = weatherObj.current.condition.icon.replace('64x64', '128x128');
@@ -16,7 +17,11 @@ const getMainPic = (weatherObj) => {
 
 const render = async (query) => {
   const currentWeather = await getData(query);
-  const backgroundSwitcher = new BackgroundSwitcher(currentWeather.location.name);
+  if (currentWeather.error) {
+    return null;
+  }
+  const timer = new TimeHandler(currentWeather.location.localtime);
+  const backgroundSwitcher = new BackgroundSwitcher(`${timer.getQuery()} ${currentWeather.location.name}`);
 
   const [
     newMainPic,
@@ -36,11 +41,12 @@ const render = async (query) => {
   renderCurrent(currentWeather);
   renderForecast(forecast.value);
 
-  const timer = new TimeHandler(currentWeather.location.localtime);
   timer.setTime();
 
   mainPic.replaceWith(newMainPic.value);
   mapSetter.value();
+  wrapper.style.display = 'flex';
+  return null;
 };
 
 export default render;

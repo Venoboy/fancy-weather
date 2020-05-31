@@ -18,12 +18,25 @@ $wrapper-margin: 90px;
 
 body {
   margin: 0;
-  background: linear-gradient(rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%) center / cover fixed,
-  url("../../src/assets/img/bg 3.png") center / cover fixed,
-  black;
+  background: linear-gradient(rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%) center / cover fixed, black;
   color: white;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+}
+
+.message {
+  // position: absolute;
+  // margin: 0 12.5%;
+  // top: 50px;
+  // width: 75%;
+  display: flex;
+  height: 30px;
+  font-size: 16px;
+  margin-top: 10px;
+  justify-content: center;
+  border-radius: 5px;
+  color: red;
+  overflow: auto;
 }
 
 .body-wrapper {
@@ -66,7 +79,7 @@ header {
 }
 
 .main-wrapper {
-  display: flex;
+  display: none;
   justify-content: space-between;
 
   @media (max-width: $wide-screen) {
@@ -81,7 +94,7 @@ header {
 }
 
 main {
-  margin-top: 57px;
+  margin-top: 12px;
 }
 
 .location h1 {
@@ -178,11 +191,12 @@ main {
 .forecast-info {
   display: flex;
   align-items: flex-start;
+  font-weight: 600;
+  font-size: 4rem;
 }
 
 .forecast-temperature {
   font-size: 8rem;
-  font-weight: 600;
 }
 
 .forecast-pic {

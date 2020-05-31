@@ -13,7 +13,7 @@
   position: relative;
   border: solid var(--border-width) var(--accent);
   border-radius: var(--border-radius);
-  transition: transform cubic-bezier(0, 0, 0.30, 2) .4s, box-shadow .4s;
+  // transition: transform cubic-bezier(0, 0, 0.30, 2) .4s, box-shadow .4s;
 
   transform-style: preserve-3d;
   perspective: 800px;
@@ -72,11 +72,11 @@
   border-bottom-right-radius: var(--border-radius);
   transform-style: preserve-3d;
   transform-origin: left;
-  transition: transform cubic-bezier(0.4, 0, 0.2, 1) .5s;
+  // transition: transform cubic-bezier(0.4, 0, 0.2, 1) .5s;
 }
 
 .toggle > #flap > .content {
   //color: #333;
-  transition: transform 0s linear .25s;
+  // transition: transform 0s linear .25s;
   transform-style: preserve-3d;
 }

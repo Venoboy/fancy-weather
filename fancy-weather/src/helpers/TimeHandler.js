@@ -51,6 +51,34 @@ class TimeHandler {
       this.timer();
     }, 1000);
   };
+
+  getQuery = () => {
+    const queryArr = [];
+    const month = this.locationDate.getMonth();
+    const hour = this.locationDate.getHours();
+
+    if (month === 11 || month < 2) {
+      queryArr.push('winter');
+    } else if (month > 1 && month < 5) {
+      queryArr.push('spring');
+    } else if (month > 4 && month < 8) {
+      queryArr.push('summer');
+    } else if (month > 7 && month < 11) {
+      queryArr.push('autumn');
+    }
+
+    if (hour < 6) {
+      queryArr.push('night');
+    } else if (hour > 5 && hour < 12) {
+      queryArr.push('morning');
+    } else if (hour > 11 && hour < 18) {
+      queryArr.push('day');
+    } else if (hour > 17) {
+      queryArr.push('evening');
+    }
+
+    return queryArr.join(' ');
+  };
 }
 
 export default TimeHandler;

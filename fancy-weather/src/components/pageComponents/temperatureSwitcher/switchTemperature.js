@@ -9,6 +9,7 @@ const switchTemperature = () => {
     const label = e.target.getAttribute('for');
     if (label === 'tempC') {
       data.tempSwitcher = 'C';
+      localStorage.setItem('tempSwitcher', 'C');
       feels.innerText = ((feels.innerText - 32) * (5 / 9)).toFixed(0);
       [...temperatureFields].forEach((field) => {
         const current = field;
@@ -16,6 +17,7 @@ const switchTemperature = () => {
       });
     } else if (label === 'tempF') {
       data.tempSwitcher = 'F';
+      localStorage.setItem('tempSwitcher', 'F');
       feels.innerText = (feels.innerText * (9 / 5) + 32).toFixed(0);
       [...temperatureFields].forEach((field) => {
         const current = field;

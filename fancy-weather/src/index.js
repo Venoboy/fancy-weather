@@ -13,7 +13,6 @@ themeSwitcher.onclick = () => {
   animationPlayer(true);
 };
 
-// backgroundSwitcher('fire');
 langSelector();
 temperatureSwitcher();
 search();
