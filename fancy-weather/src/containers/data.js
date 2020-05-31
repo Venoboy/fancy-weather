@@ -1,5 +1,5 @@
 export const data = {
-  baseUrl: 'http://api.weatherapi.com/v1',
+  baseUrl: 'https://api.weatherapi.com/v1',
   currentWeatherPath: '/current.json',
   forecastPath: '/forecast.json',
   apiKey: '9b8d0760195b44a394b102256202605',
