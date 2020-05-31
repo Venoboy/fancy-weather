@@ -46,6 +46,13 @@ $button-text-color: #fff;
 	transition: all 200ms ease-in;
 	cursor: pointer;
 
+	@media (max-width: $phone) {
+		position: static;
+		display: block;
+		margin-top: 15px;
+		width: available;
+	}
+
 	&--primary {
 		background: $button-bg-color;
 		color: $button-text-color;
@@ -73,6 +80,11 @@ $button-text-color: #fff;
 .form {
 	position: relative;
 
+	@media (max-width: $phone) {
+		display: flex;
+		flex-direction: column;
+	}
+
 	&__field {
 		width: 340px;
 		height: 44px;
@@ -92,7 +104,8 @@ $button-text-color: #fff;
 		}
 
 		@media (max-width: $phone) {
-			width: 230px;
+			width: available;
+			margin-right: 0;
 		}
 
 		&::placeholder {

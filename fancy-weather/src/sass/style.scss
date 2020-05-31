@@ -122,9 +122,9 @@ main {
   font-size: 30.6rem;
   position: relative;
 
-  //@media (max-width: 2 / 3 * $tablet) {
-  //  font-size: 20rem;
-  //}
+  @media (max-width: $phone) {
+    font-size: 20rem;
+  }
 }
 
 .o-sign {
@@ -132,6 +132,10 @@ main {
   top: 5rem;
   right: -40px;
   font-size: 10rem;
+
+  @media (max-width: $phone) {
+    top: 2rem;
+  }
 }
 
 .overview {

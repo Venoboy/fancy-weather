@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 let myMap;
 
 const map = (weather) => {
