@@ -1,2 +1,3 @@
-# venoboy-RS2020Q1
-Private repository for @venoboy
+Прогноз погоды на 3 дня с привязкой к положению пользователя.
+
+[Ссылка на готовый проект](https://venoboy-fancy-weather.netlify.app/)
